@@ -3,17 +3,11 @@ import { WhatsAppConfig } from '@ioc:Adonis/Addons/WhatsApp'
 
 const whatsappConfig: WhatsAppConfig = {
   webhookRoute: '/webhook/whatsapp',
-
   timeout: 60,
-
   phoneNumberId: Env.get('WABA_ID'),
-
   accessToken: Env.get('WABA_TOKEN'),
-
   verifyToken: Env.get('WABA_VERIFY'),
-
   graphUrl: 'https://graph.facebook.com',
-
   graphVersion: 'v16.0',
 }
 

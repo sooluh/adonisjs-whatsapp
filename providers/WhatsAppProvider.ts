@@ -36,8 +36,8 @@ export default class WhatsAppProvider {
 
   public boot() {
     const Route = this.app.container.use('Adonis/Core/Route')
-    const Config = this.app.container.use('Adonis/Core/Config')
     const Event = this.app.container.use('Adonis/Core/Event')
+    const Config = this.app.container.use('Adonis/Core/Config')
     const Logger = this.app.container.use('Adonis/Core/Logger')
 
     const whatsapp: WhatsAppConfig = Config.get('whatsapp', this.config)
@@ -76,12 +76,12 @@ export default class WhatsAppProvider {
       const metadata = !!value.metadata && value.metadata
 
       if (Number(metadata.phone_number_id) !== Number(whatsapp.phoneNumberId)) {
-        // what is received isn't the same as the one in the configuration.
+        // ignore webhook if phone number id is different
         return ctx.response.status(200).send({ code: 200 })
       }
 
       if (['unsupported', 'reaction', 'order', 'system'].includes(message.type)) {
-        // I don't support this, you can pull request!
+        // i don't support this, you can pull request!
         return ctx.response.status(200).send({ code: 200 })
       }
 

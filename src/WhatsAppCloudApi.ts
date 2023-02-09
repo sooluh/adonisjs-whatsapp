@@ -195,8 +195,10 @@ export class WhatsAppCloudApi implements WhatsAppCloudApiContract {
   }
 
   public async uploadMedia() {
-    // TODO: upload file directly from ctx.request.file() to whatsapp server
+    // TODO: upload directly from ctx.request.file() to whatsapp server
   }
 
-  public async downloadMedia() {}
+  public async downloadMedia() {
+    // TODO: download media from whatsapp server
+  }
 }

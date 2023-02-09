@@ -130,13 +130,30 @@
     "access": "public"
   },
   "adonisjs": {
-    "instructions": "./build/instructions.js",
     "instructionsMd": "./build/instructions.md",
+    "templates": {
+      "basePath": "./build/templates",
+      "config": [
+        {
+          "src": "config/whatsapp.txt",
+          "dest": "whatsapp"
+        }
+      ],
+      "start": [
+        {
+          "src": "start/whatsapp.txt",
+          "dest": "whatsapp"
+        }
+      ]
+    },
     "env": {
       "WABA_ID": "",
       "WABA_TOKEN": "",
       "WABA_VERIFY": ""
     },
+    "preloads": [
+      "./start/whatsapp"
+    ],
     "providers": [
       "adonisjs-whatsapp"
     ],
