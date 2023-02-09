@@ -1,4 +1,7 @@
 declare module '@ioc:Adonis/Addons/WhatsApp' {
+  import { DisksList } from '@ioc:Adonis/Core/Drive'
+  import { MultipartFileContract } from '@ioc:Adonis/Core/BodyParser'
+
   export type TextOptions = {
     preview_url?: boolean
   }
@@ -81,12 +84,12 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
   }
 
   export type ContactOptions = {
-    addresses: AddressObject[]
+    addresses?: AddressObject[]
     birthday?: string
-    emails: EmailObject[]
+    emails?: EmailObject[]
     name: {
       formatted_name: string
-      first_name?: string
+      first_name: string
       last_name?: string
       middle_name?: string
       suffix?: string
@@ -97,8 +100,8 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
       department?: string
       title?: string
     }
-    phones: PhoneObject[]
-    urls: UrlObject[]
+    phones?: PhoneObject[]
+    urls?: UrlObject[]
   }
 
   export type ButtonsOptions = {
@@ -125,6 +128,12 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
   export type SectionOptions = {
     title?: string
     rows: RowObject[]
+  }
+
+  export type DownloadOptions = {
+    filename?: string
+    disk?: keyof DisksList
+    folder?: string
   }
 
   export type WhatsAppMessageContract = {
@@ -160,7 +169,7 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
   }
 
   export interface WhatsAppCloudApiContract {
-    sendText(to: number, text: string, options: TextOptions): Promise<WhatsAppResultContract>
+    sendText(to: number, text: string, options?: TextOptions): Promise<WhatsAppResultContract>
 
     sendImage(to: number, media: string, options?: MediaOptions): Promise<WhatsAppResultContract>
 
@@ -233,6 +242,10 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
       event: '*',
       handler: (message: WhatsAppMessageContract | WhatsAppStatusContract) => void
     ): void
+
+    downloadMedia(media: string, options?: DownloadOptions): Promise<string | false>
+
+    uploadMedia(source: string | MultipartFileContract): Promise<string | false>
   }
 
   export interface WhatsAppConfig {

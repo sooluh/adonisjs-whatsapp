@@ -14,7 +14,19 @@ export default class Helpers {
     return !!pattern.test(string)
   }
 
-  public static translateType(type: string) {
+  public static translateType(
+    type: string
+  ):
+    | 'text'
+    | 'image'
+    | 'document'
+    | 'audio'
+    | 'video'
+    | 'sticker'
+    | 'location'
+    | 'contacts'
+    | 'button'
+    | 'list' {
     const types = {
       button_reply: 'button',
       list_reply: 'list',
