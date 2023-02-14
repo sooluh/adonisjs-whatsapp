@@ -160,7 +160,7 @@ export class WhatsAppCloudApi implements WhatsAppCloudApiContract {
     })
   }
 
-  public async sendReplyButtons(
+  public async sendButtons(
     to: number,
     text: string,
     buttons: ButtonsOptions,
@@ -172,7 +172,8 @@ export class WhatsAppCloudApi implements WhatsAppCloudApiContract {
       interactive: {
         type: 'button',
         body: { text },
-        ...options,
+        ...(options?.footer ? { footer: { text: options?.footer } } : {}),
+        header: options?.header,
         action: {
           buttons: Object.keys(buttons).map((key) => {
             return {
@@ -201,7 +202,8 @@ export class WhatsAppCloudApi implements WhatsAppCloudApiContract {
       interactive: {
         type: 'list',
         body: { text },
-        ...options,
+        ...(options?.footer ? { footer: { text: options?.footer } } : {}),
+        header: options?.header,
         action: {
           button,
           sections,
@@ -210,7 +212,7 @@ export class WhatsAppCloudApi implements WhatsAppCloudApiContract {
     })
   }
 
-  public async readMessage(wamid: string): Promise<boolean> {
+  public async markAsRead(wamid: string): Promise<boolean> {
     const response = await this.client.send(
       {
         status: 'read',

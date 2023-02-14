@@ -122,7 +122,7 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
   type RowObject = {
     id: string
     title: string
-    description: string
+    description?: string
   }
 
   export type SectionOptions = {
@@ -200,7 +200,7 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
 
     sendContact(to: number, contacts: ContactOptions[]): Promise<WhatsAppResultContract>
 
-    sendReplyButtons(
+    sendButtons(
       to: number,
       text: string,
       buttons: ButtonsOptions,
@@ -215,7 +215,7 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
       options?: InteractiveOptions
     ): Promise<WhatsAppResultContract>
 
-    readMessage(wamid: string): Promise<boolean>
+    markAsRead(wamid: string): Promise<boolean>
 
     on(
       event:

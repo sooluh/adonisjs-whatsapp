@@ -90,14 +90,15 @@ export default class WhatsAppProvider {
       let data: WhatsAppMessageContract | WhatsAppStatusContract | null = null
 
       if (message) {
-        const type = Helpers.translateType(message.type)
+        const interactive = Helpers.translateInteractive(message)
+        const type = Helpers.translateType(interactive?.type || message.type)
 
         data = {
-          from: contact.wa_id,
+          from: Number(contact.wa_id),
           sender: contact.profile.name,
           wamid: message.id,
-          data: message[message.type],
-          timestamp: message.timestamp,
+          data: interactive?.data || message[message.type],
+          timestamp: Number(message.timestamp),
           type,
         }
 
@@ -107,9 +108,9 @@ export default class WhatsAppProvider {
 
       if (status) {
         data = {
-          from: status.recipient_id,
+          from: Number(status.recipient_id),
           wamid: status.id,
-          timestamp: status.timestamp,
+          timestamp: Number(status.timestamp),
           status: status.status,
         }
 
