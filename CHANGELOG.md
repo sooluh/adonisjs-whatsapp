@@ -1,10 +1,14 @@
 # CHANGELOG
 
-## 0.2.2
+## 0.2.3
 
 Support `quick_reply` and `url` button in template message
 
-## 0.2.1
+## 0.2.2
+
+Update README.md
+
+## 0.2.2
 
 - Optional `description` on `RowObject`
 - Rename method:
