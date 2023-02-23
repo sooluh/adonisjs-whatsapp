@@ -43,7 +43,8 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
     }
 
   type ParameterObject = {
-    type: 'currency' | 'date_time' | 'document' | 'image' | 'text' | 'video'
+    type: 'currency' | 'date_time' | 'document' | 'image' | 'text' | 'video' | 'payload'
+    payload?: string
     text?: string
     currency?: CurrencyObject
     date_time?: DateTimeObject
@@ -53,7 +54,9 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
   }
 
   export type ComponentOptions = {
-    type: 'header' | 'body' | 'footer'
+    type: 'header' | 'body' | 'footer' | 'button'
+    sub_type?: 'quick_reply' | 'url'
+    index?: string
     parameters: ParameterObject[]
   }
 

@@ -134,7 +134,7 @@ export class WhatsAppCloudApi implements WhatsAppCloudApiContract {
     to: number,
     template: string,
     language: string,
-    components: ComponentOptions[]
+    components?: ComponentOptions[]
   ): Promise<WhatsAppResultContract> {
     return await this.client.send({
       to,

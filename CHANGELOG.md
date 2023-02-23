@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.2
+
+Support `quick_reply` and `url` button in template message
+
 ## 0.2.1
 
 - Optional `description` on `RowObject`
