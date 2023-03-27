@@ -1,6 +1,6 @@
 {
   "name": "adonisjs-whatsapp",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Connect your WhatsApp Cloud API with AdonisJS",
   "main": "build/providers/WhatsAppProvider.js",
   "scripts": {
