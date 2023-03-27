@@ -21,7 +21,7 @@ export default class WhatsAppClient {
     'Authorization': 'Bearer ' + this.config.accessToken,
   }
 
-  private skeleton = {
+  private mandatory = {
     messaging_product: 'whatsapp',
     recipient_type: 'individual',
   }
@@ -30,13 +30,18 @@ export default class WhatsAppClient {
     const { timeout, phoneNumberId, graphUrl, graphVersion } = this.config
 
     const response = await axios({
+      validateStatus: (status) => status <= 999,
       method: 'POST',
       url: `${graphUrl}/${graphVersion}/${phoneNumberId}/messages`,
       timeout,
       headers: this.headers,
-      data: { ...this.skeleton, ...data },
+      data: { ...this.mandatory, ...data },
       responseType: 'json',
     })
+
+    if ('error' in response.data) {
+      throw new Error(response.data.error?.error_data?.details || response.data.error?.message)
+    }
 
     return parse ? WhatsAppClient.parse(response.data) : response.data
   }
@@ -45,12 +50,17 @@ export default class WhatsAppClient {
     const { timeout, graphUrl, graphVersion } = this.config
 
     const response = await axios({
+      validateStatus: (status) => status <= 999,
       method: 'GET',
       url: `${graphUrl}/${graphVersion}/${media}`,
       timeout,
       headers: this.headers,
       responseType: 'json',
     })
+
+    if ('error' in response.data) {
+      throw new Error(response.data.error?.error_data?.details || response.data.error?.message)
+    }
 
     return response.data
   }
@@ -59,6 +69,7 @@ export default class WhatsAppClient {
     const { timeout, phoneNumberId, graphUrl, graphVersion } = this.config
 
     const response = await axios({
+      validateStatus: (status) => status <= 999,
       method: 'POST',
       url: `${graphUrl}/${graphVersion}/${phoneNumberId}/media`,
       timeout,
@@ -66,6 +77,10 @@ export default class WhatsAppClient {
       data: form,
       responseType: 'json',
     })
+
+    if ('error' in response.data) {
+      throw new Error(response.data.error?.error_data?.details || response.data.error?.message)
+    }
 
     return response.data
   }

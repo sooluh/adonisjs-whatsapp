@@ -36,7 +36,7 @@ export default class Helpers {
   }
 
   public static translateInteractive(message: Record<string, any>) {
-    if (message.type !== 'interactive') return null
+    if (!message || !message.type || message.type !== 'interactive') return null
 
     return {
       type: message.interactive.type as string,
