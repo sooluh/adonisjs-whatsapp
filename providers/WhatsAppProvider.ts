@@ -1,12 +1,12 @@
+import Helpers from '../src/Helpers'
 import { WhatsAppCloudApi } from '../src/WhatsAppCloudApi'
+import { ApplicationContract } from '@ioc:Adonis/Core/Application'
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import {
   WhatsAppConfig,
   WhatsAppMessageContract,
   WhatsAppStatusContract,
 } from '@ioc:Adonis/Addons/WhatsApp'
-import { ApplicationContract } from '@ioc:Adonis/Core/Application'
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Helpers from '../src/Helpers'
 
 export default class WhatsAppProvider {
   public static needsApplication = true
