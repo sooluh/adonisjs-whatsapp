@@ -77,7 +77,7 @@ export default class WhatsAppProvider {
       const contact = !!value.contacts && value.contacts[0]
       const metadata = !!value.metadata && value.metadata
 
-      if (Number(metadata.phone_number_id) !== Number(whatsapp.phoneNumberId)) {
+      if (String(metadata.phone_number_id) !== whatsapp.phoneNumberId) {
         // ignore webhook if phone number id is different
         return ctx.response.status(200).send({ code: 200 })
       }

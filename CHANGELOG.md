@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.2.5
+
+Change `WABA_ID` to string (resolving issue #2)
+
+## 0.2.4
+
+Throw an error if an error occurs
+
 ## 0.2.3
 
 Support `quick_reply` and `url` button in template message

@@ -3,7 +3,7 @@ The package has been configured successfully. The Adonis WhatsApp configuration 
 Open the `env.ts` file and paste the following code inside the `Env.rules` object.
 
 ```ts
-WABA_ID: Env.schema.number(),
+WABA_ID: Env.schema.string(),
 WABA_TOKEN: Env.schema.string(),
 WABA_VERIFY: Env.schema.string(),
 ```

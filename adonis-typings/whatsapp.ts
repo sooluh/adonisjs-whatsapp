@@ -254,7 +254,7 @@ declare module '@ioc:Adonis/Addons/WhatsApp' {
   export interface WhatsAppConfig {
     webhookRoute: string
     timeout: number
-    phoneNumberId: number
+    phoneNumberId: string
     accessToken: string
     verifyToken: string
     graphUrl: string

@@ -29,7 +29,7 @@ After executing the above command, a `config/whatsapp.ts` file will be created, 
 An important step is to set environment variables in your `.env` and validate them in the `env.ts` file.
 
 ```ts
-WABA_ID: Env.schema.number(),
+WABA_ID: Env.schema.string(),
 WABA_TOKEN: Env.schema.string(),
 WABA_VERIFY: Env.schema.string(),
 ```
