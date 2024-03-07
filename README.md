@@ -1,4 +1,4 @@
-<a href="https://s.id/standwithpalestine"><img alt="I stand with Palestine" src="https://github.com/Safouene1/support-palestine-banner/blob/master/banner-project.svg" width="100%" /></a>
+<a href="https://s.id/standwithpalestine"><img alt="I stand with Palestine" src="https://cdn.jsdelivr.net/gh/Safouene1/support-palestine-banner@master/banner-support.svg" width="100%" /></a>
 
 ![adonisjs-whatsapp](https://socialify.git.ci/sooluh/adonisjs-whatsapp/image?description=1&descriptionEditable=Connect%20your%20WhatsApp%20Cloud%20API%20with%20AdonisJS&font=Jost&forks=1&issues=1&logo=https%3A%2F%2Fik.imagekit.io%2Fsooluh%2Fwhatsapp.png&name=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Auto)
 
